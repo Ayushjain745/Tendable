@@ -9,11 +9,12 @@ import SwiftUI
 
 struct InspectionDetailView: View {
     @StateObject private var viewModel: InspectionDetailViewModel
-    
+    @State private var showSubmissionAlert = false
+
     init(viewModel: InspectionDetailViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
-    
+
     var body: some View {
         List {
             ForEach(viewModel.inspection.survey.categories.indices, id: \.self) { categoryIndex in
@@ -30,11 +31,18 @@ struct InspectionDetailView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    viewModel.submitInspection()
+                    viewModel.submitInspection { success in
+                        if success {
+                            showSubmissionAlert = true
+                        }
+                    }
                 }) {
                     Text("Submit")
                 }
             }
+        }
+        .alert(isPresented: $showSubmissionAlert) {
+            Alert(title: Text("Success"), message: Text("Inspection submitted successfully!"), dismissButton: .default(Text("OK")))
         }
     }
 }

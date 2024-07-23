@@ -8,6 +8,21 @@
 import SwiftUI
 
 struct InspectionListView: View {
+    var body: some View {
+        TabView {
+            OngoingInspectionsView()
+                .tabItem {
+                    Label("Inspections", systemImage: "list.dash")
+                }
+            HistoryView()
+                .tabItem {
+                    Label("History", systemImage: "clock")
+                }
+        }
+    }
+}
+
+struct OngoingInspectionsView: View {
     @StateObject private var viewModel = InspectionListViewModel()
     
     var body: some View {

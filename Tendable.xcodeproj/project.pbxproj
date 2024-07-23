@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75ADB0DF2C4F904200F84658 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ADB0DE2C4F904200F84658 /* HistoryView.swift */; };
+		75ADB0E12C4F906200F84658 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ADB0E02C4F906200F84658 /* HistoryViewModel.swift */; };
 		BA78F4842C4D07EE00569BC1 /* AnswerChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F4832C4D07EE00569BC1 /* AnswerChoiceView.swift */; };
 		BA78F4862C4D0B2700569BC1 /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F4852C4D0B2700569BC1 /* MockAPIService.swift */; };
 		BAD030B52C4CE75900FA9357 /* TendableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD030B42C4CE75900FA9357 /* TendableApp.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		75ADB0DE2C4F904200F84658 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		75ADB0E02C4F906200F84658 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		BA78F4832C4D07EE00569BC1 /* AnswerChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerChoiceView.swift; sourceTree = "<group>"; };
 		BA78F4852C4D0B2700569BC1 /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		BAD030B12C4CE75900FA9357 /* Tendable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tendable.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +192,7 @@
 				BAD030EC2C4CE93B00FA9357 /* InspectionListView.swift */,
 				BAD030EE2C4CE95200FA9357 /* InspectionDetailView.swift */,
 				BA78F4832C4D07EE00569BC1 /* AnswerChoiceView.swift */,
+				75ADB0DE2C4F904200F84658 /* HistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				BAD030F42C4CEB9300FA9357 /* LoginViewModel.swift */,
 				BAD030F62C4CEC3D00FA9357 /* InspectionListViewModel.swift */,
 				BAD030F82C4CEC5800FA9357 /* InspectionDetailViewModel.swift */,
+				75ADB0E02C4F906200F84658 /* HistoryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 				BAD030EA2C4CE90B00FA9357 /* LoginView.swift in Sources */,
 				BAD030B72C4CE75900FA9357 /* ContentView.swift in Sources */,
 				BAD030F72C4CEC3D00FA9357 /* InspectionListViewModel.swift in Sources */,
+				75ADB0DF2C4F904200F84658 /* HistoryView.swift in Sources */,
 				BAD030E12C4CE7F700FA9357 /* Inspection.swift in Sources */,
 				BAD030E72C4CE8C100FA9357 /* PersistentService.swift in Sources */,
 				BAD030E42C4CE85D00FA9357 /* APIService.swift in Sources */,
@@ -344,6 +351,7 @@
 				BAD030F52C4CEB9300FA9357 /* LoginViewModel.swift in Sources */,
 				BAD030EF2C4CE95200FA9357 /* InspectionDetailView.swift in Sources */,
 				BA78F4842C4D07EE00569BC1 /* AnswerChoiceView.swift in Sources */,
+				75ADB0E12C4F906200F84658 /* HistoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

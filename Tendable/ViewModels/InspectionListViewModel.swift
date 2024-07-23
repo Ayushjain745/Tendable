@@ -26,7 +26,7 @@ class InspectionListViewModel: ObservableObject {
                 self.isLoading = false
                 switch result {
                 case .success(let inspection):
-                    self.inspections = [inspection]  // Assuming you want to display the single inspection
+                    self.inspections = [inspection]
                     self.errorMessage = nil
                 case .failure(let error):
                     self.errorMessage = error.localizedDescription

@@ -18,6 +18,7 @@ protocol APIServiceProtocol {
     func register(email: String, password: String, completion: @escaping (Result<Bool, Error>) -> Void)
     func startInspection(completion: @escaping (Result<Inspection, Error>) -> Void)
     func submitInspection(inspection: Inspection, completion: @escaping (Result<Bool, Error>) -> Void)
+    func fetchHistory(completion: @escaping (Result<[Inspection], Error>) -> Void)
 }
 
 class APIService: APIServiceProtocol {
@@ -107,6 +108,23 @@ class APIService: APIServiceProtocol {
             }
             
             completion(.success(true))
+        }.resume()
+    }
+    
+    func fetchHistory(completion: @escaping (Result<[Inspection], Error>) -> Void) {
+        let url = URL(string: "\(baseURL)/inspections/history")!
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            guard let data = data, let inspections = try? JSONDecoder().decode([Inspection].self, from: data) else {
+                completion(.failure(APIError.invalidResponse))
+                return
+            }
+
+            completion(.success(inspections))
         }.resume()
     }
 }
