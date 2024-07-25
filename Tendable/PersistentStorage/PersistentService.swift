@@ -16,7 +16,11 @@ class PersistenceService {
     
     func saveInspection(_ inspection: Inspection) {
         var inspections = fetchInspections()
-        inspections.append(inspection)
+        if let index = inspections.firstIndex(where: { $0.id == inspection.id }) {
+            inspections[index] = inspection
+        } else {
+            inspections.append(inspection)
+        }
         if let encoded = try? JSONEncoder().encode(inspections) {
             userDefaults.set(encoded, forKey: inspectionsKey)
         }

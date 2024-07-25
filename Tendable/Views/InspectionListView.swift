@@ -9,15 +9,18 @@ import SwiftUI
 
 struct InspectionListView: View {
     var body: some View {
-        TabView {
-            OngoingInspectionsView()
-                .tabItem {
-                    Label("Inspections", systemImage: "list.dash")
-                }
-            HistoryView()
-                .tabItem {
-                    Label("History", systemImage: "clock")
-                }
+        NavigationView {
+            TabView {
+                OngoingInspectionsView()
+                    .tabItem {
+                        Label("Inspections", systemImage: "list.dash")
+                    }
+                HistoryView()
+                    .tabItem {
+                        Label("History", systemImage: "clock")
+                    }
+            }
+            .navigationTitle("Inspections")
         }
     }
 }
@@ -35,7 +38,12 @@ struct OngoingInspectionsView: View {
                 } else {
                     List(viewModel.inspections) { inspection in
                         NavigationLink(destination: InspectionDetailView(viewModel: InspectionDetailViewModel(inspection: inspection))) {
-                            Text("Inspection \(inspection.id)")
+                            VStack(alignment: .leading) {
+                                Text("Inspection \(inspection.id)")
+                                Text("Final Score: \(InspectionDetailViewModel(inspection: inspection).finalScore, specifier: "%.2f")")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
                         }
                     }
                     
@@ -45,7 +53,6 @@ struct OngoingInspectionsView: View {
                     }
                 }
             }
-            .navigationTitle("Inspections")
             .onAppear {
                 viewModel.fetchInspections()
             }

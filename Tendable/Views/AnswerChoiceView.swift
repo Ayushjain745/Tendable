@@ -2,7 +2,7 @@
 //  AnswerChoiceView.swift
 //  Tendable
 //
-//  Created by Akshay Billore on 21/07/24.
+//  Created by Ayush Jain on 21/07/24.
 //
 
 import SwiftUI
@@ -11,6 +11,7 @@ struct AnswerChoiceView: View {
     @ObservedObject var viewModel: InspectionDetailViewModel
     let categoryIndex: Int
     let questionIndex: Int
+    let isReadOnly: Bool
     
     var body: some View {
         List(viewModel.inspection.survey.categories[categoryIndex].questions[questionIndex].answerChoices) { choice in
@@ -25,8 +26,9 @@ struct AnswerChoiceView: View {
                     }
                 }
             }
+            .disabled(isReadOnly)
         }
-        .navigationTitle("Select Answer")
+        .navigationTitle(isReadOnly ? "Selected Answer" : "Select Answer")
     }
 }
 
